@@ -1,0 +1,42 @@
+By running makemigrations, you’re telling Django that you’ve made some changes 
+to your models (in this case, you’ve made new ones) 
+and that you’d like the changes to be stored as a migration.
+
+py manage.py migrate
+The migrate command takes all the migrations that haven’t been applied (Django tracks which ones are applied using a special table in your database called django_migrations) 
+and runs them against your database - essentially, synchronizing the changes you made to your models with the schema in the database.
+
+remember the three-step guide to making model changes:
+1.Change your models (in models.py).
+2.Run python manage.py makemigrations to create migrations for those changes
+3.Run python manage.py migrate to apply those changes to the database.
+
+
+Playing with the API :
+Now, let’s hop into the interactive Python shell and play around with the free API Django gives you. To invoke the Python shell, use this command:
+
+...\> py manage.py shell
+
+We’re using this instead of simply typing “python”, because manage.py sets the DJANGO_SETTINGS_MODULE environment variable, which gives Django the Python import path to your mysite/settings.py file.
+
+Once you’re in the shell, explore the database API.
+
+
+In Django, web pages and other content are delivered by views. Each view is represented by a Python function (or method, in the case of class-based views). Django will choose a view by examining the URL that’s requested (to be precise, the part of the URL after the domain name).
+
+The question_id=34 part comes from <int:question_id>. Using angle brackets “captures” part of the URL and sends it as a keyword argument to the view function. The question_id part of the string defines the name that will be used to identify the matched pattern, and the int part is a converter that determines what patterns should match this part of the URL path. The colon (:) separates the converter and pattern name.
+
+
+Use generic views: Less code is better¶
+The detail() (from Tutorial 3) and results() views are very short – and, as mentioned above, redundant. The index() view, which displays a list of polls, is similar.
+
+These views represent a common case of basic web development: getting data from the database according to a parameter passed in the URL, loading a template and returning the rendered template. Because this is so common, Django provides a shortcut, called the “generic views” system.
+
+Generic views abstract common patterns to the point where you don’t even need to write Python code to write an app.
+
+Let’s convert our poll app to use the generic views system, so we can delete a bunch of our own code. We’ll have to take a few steps to make the conversion. We will:
+
+Convert the URLconf.
+Delete some of the old, unneeded views.
+Introduce new views based on Django’s generic views.
+

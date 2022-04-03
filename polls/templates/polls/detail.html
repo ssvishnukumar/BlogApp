@@ -1,0 +1,27 @@
+{% extends "polls/look.html" %}
+{% block content %}
+
+<div class="d-grid gap-2 col-4 mx-auto">
+<form action="{% url 'polls:vote' question.id %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <br>
+        <legend><h2>{{ question.question_text }}</h2></legend>
+        <br>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        {% for choice in question.choice_set.all %}
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+        <br>
+        {% endfor %}
+
+    </fieldset>
+    <br>
+    <div class="d-grid gap-2 col-12 mx-auto">
+    <button class="btn btn-outline-primary">SELECT</button>
+    </div>
+    </form>
+<div class="d-grid gap-2 col-12 mx-auto">
+<a class="btn btn-outline-danger" href="{% url 'home' %}" >EXIT</a>
+</div>
+{% endblock %}

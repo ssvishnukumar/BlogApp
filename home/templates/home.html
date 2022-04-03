@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Blog And Poll</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<!--        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="mainNav">-->
+<!--            <div class="container-fluid">-->
+<!--                <a class="navbar-brand" href="{% url 'blog:home' %}"></a>-->
+<!--                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"-->
+<!--                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--                    <span class="navbar-toggler-icon"></span>-->
+<!--                </button>-->
+<!--                <div class="collapse navbar-collapse" id="navbarResponsive">-->
+<!--                    <ul class="navbar-nav ml-auto">-->
+<!--                        {% if user.is_authenticated %}-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>-->
+<!--                        </li>-->
+<!--                      {% else %}-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link" href="{% url 'register' %}">REGISTER</a>-->
+<!--                        </li>-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link" href="{% url 'login' %}">LOGIN</a>-->
+<!--                        </li>-->
+
+<!--                      {% endif %}-->
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+<div class="container mt-5">
+  <h1>Choose an Application</h1>
+  <br>
+  <a href="/blog" class="btn btn-outline-primary btn-lg">BLOG App</a><br><br>
+
+        <a href="/polls" class="btn btn-outline-primary btn-lg">POLLS App</a>
+</div>
+
+</body>
+</html>
