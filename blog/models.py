@@ -14,7 +14,7 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now= True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    status = models.IntegerField(choices=STATUS, default=0)
+    status = models.IntegerField(choices=STATUS, default=1)
 
     class Meta:
         ordering = ['-created_on']
@@ -24,15 +24,4 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:home') # we have to mention the app name also because we have mentioned that in the url page.
-
-
-# class Profile(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
-#     bio = models.TextField(blank=True, null=True)
-#     facebook = models.CharField(max_length=300, blank=True, null=True)
-#     instagram = models.CharField(max_length=300, blank=True, null=True)
-#     linkedin = models.CharField(max_length=300, blank=True, null=True)
-#
-#     def __str__(self):
-#         return str(self.user)
-#
+        # this function will be used when we use class based view for add blog in views.py

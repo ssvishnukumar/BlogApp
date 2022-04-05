@@ -11,14 +11,14 @@
       </div>
     </div>
 </div>
-<div class="d-grid gap-2 col-auto mx-auto">
+<div class="d-grid gap-2 col-2 mx-auto">
 <!--      <div class="d-grid gap-2 col-auto mx-auto">-->
 <a href="{% url 'blog:home' %}" class="btn btn-primary">Back</a>
 </div>
 <br>
 {% if user.is_authenticated %}
 {% if user.id == post.author.id %}
-<div class="d-grid gap-2 col-auto mx-auto">
+<div class="d-grid gap-2 col-2 mx-auto">
 <a href="{% url 'blog:delete_blog' post.slug %}" class="btn btn-danger">Delete</a>
 </div>{% endif %}
 {% endif %}

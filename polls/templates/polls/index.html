@@ -4,12 +4,16 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
 <br>
-<div class="d-grid gap-2 col-2 mx-auto">
+<div class="d-grid gap-2 col-6 mx-auto">
+
+<div class="d-grid gap-auto col-auto mx-auto">
     <h3>Select Question</h3>
+            <br>
+
 </div>
+
 {% if latest_question_list %}
     {% for question in latest_question_list %}
-        <br>
 <div class="d-grid gap-2 col-6 mx-auto">
         <a href="{% url 'polls:detail' question.id %}" class="btn btn-outline-primary">{{ question.question_text }}</a>
 </div>
@@ -19,7 +23,7 @@
     <p>No polls are available. Just create one from Admin panel on something</p>
 {% endif %}
 
-<br>
+
 <div class="d-grid gap-2 col-2 mx-auto">
 
 <a class="btn btn-outline-danger" href="{% url 'home' %}" >EXIT</a>
